@@ -1,0 +1,84 @@
+
+/* Navigation Styles*/
+
+.logo {
+  color:grey;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2pt;
+}
+
+.navbar__menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar__menu ul {
+    font-size: 10pt;
+    display: flex;
+    padding-left: 0;
+    /*margin: 0;*/
+    /*text-align: center;*/
+    justify-content: space-around;
+    width: 30%;
+}
+
+.navbar__menu li {
+    display: inline-block;
+}
+
+.navbar__menu .menu__link {
+    display: block;
+    /*padding: 1em;*/
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar__menu .menu__link:hover {
+    background: #333;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
+.burger {
+  display:none;
+  cursor:pointer;
+}
+
+.burger div {
+  width: 25px;
+  height:3px;
+  background-color: grey;
+  margin:2pt;
+}
+
+@media screen and (max-width:35em) {
+  .navbar__menu li {
+    overflow-x:hidden;
+  }
+  .navbar__list {
+      position:absolute;
+      transform: translateX(100%);
+      right:0px;
+      height:88vh;
+      top:12vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      background-color: pink /*#fff*/;
+  }
+  .navbar__menu li {
+      opacity:100%;
+
+  }
+  .burger {
+    display:block;
+  }
+}
+
+.nav_active {
+  float:right;
+}
