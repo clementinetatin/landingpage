@@ -34,15 +34,31 @@
 */
 
 // build the nav
-const navSlide = function() {
+
+let ul = document.querySelector('ul');
+let links = ['Home', 'Work', 'About', 'Contact']
+
+links.forEach((link)=> {
+  const li = document.createElement('li');
+  li.innerText = link;
+  ul.appendChild(li);
+})
+
+
+const navSlide = () => {
   const burger = document.querySelector('.burger');
   const nav = document.querySelector('.navbar__list');
+  //const navLinks = document.querySelectorAll('.navbar__list li');
 
-  burger.addEventListener('click',() {
+  burger.addEventListener('click',()=> {
     nav.classList.toggle('nav_active');
+    /*navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = 'navLinkFade 0,5s ease forwards $‘{index/7 +1,5}s';
+      }
+    })*/
   });
 };
-
 navSlide();
 
 

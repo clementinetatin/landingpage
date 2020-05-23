@@ -1,6 +1,11 @@
 
 /* Navigation Styles*/
 
+a:link {
+  color:darkgrey;
+  text-decoration: none;
+}
+
 .logo {
   color:grey;
   font-size: 25px;
@@ -18,10 +23,11 @@
     font-size: 10pt;
     display: flex;
     padding-left: 0;
-    /*margin: 0;*/
-    /*text-align: center;*/
+    margin: 0;
+    text-align: center;
     justify-content: space-around;
     width: 30%;
+    color:darkgrey;
 }
 
 .navbar__menu li {
@@ -30,9 +36,9 @@
 
 .navbar__menu .menu__link {
     display: block;
-    /*padding: 1em;*/
+    padding: 1em;
     font-weight: bold;
-    text-decoration: none;
+    /*text-decoration: none;*/
     color: #000;
 }
 
@@ -55,30 +61,50 @@
 }
 
 @media screen and (max-width:35em) {
+
+  .main__hero {
+    padding-top: 50px;
+    font-size: 10pt;
+  }
+
   .navbar__menu li {
+    width:60%;
     overflow-x:hidden;
   }
   .navbar__list {
       position:absolute;
-      transform: translateX(100%);
       right:0px;
-      height:88vh;
-      top:12vh;
-      display: flex;
-      flex-direction: column;
+      top:98px;
+      height:400px;
+      display:flex;
+      flex-direction:column;
       align-items: center;
-      width: 50%;
-      background-color: pink /*#fff*/;
+      /*width: 100%;*/
+      transform:translateX(100%);
+      background-color: #fff;
   }
-  .navbar__menu li {
-      opacity:100%;
 
+  .navbar__list li {
+
+    opacity: 1;
   }
+
   .burger {
     display:block;
   }
 }
 
 .nav_active {
-  float:right;
+  transform: translateX(0%);
 }
+
+/*@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity:1;
+    transform: translateX(0px);
+  }
+}*/
