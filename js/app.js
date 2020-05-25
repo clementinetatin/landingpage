@@ -34,15 +34,56 @@
 */
 
 // build the nav
+const sections = Array.from(document.querySelectorAll('section[data-nav]'));
+const ul = document.querySelectorAll('ul');
+const sectionId = sections.id;
 
-let ul = document.querySelector('ul');
-let links = ['Home', 'Work', 'About', 'Contact']
-
-links.forEach((link)=> {
+for (let i=0; i<sections.length;i++) {
   const li = document.createElement('li');
+  const anch = document.createElement('a');
+  a.innerText = sections[i].id;
+  var addAnchToLi = li.appendChild(a);
+  document.getElementById("navbar__list").appendChild(addAnchToLi);
+  anch.setAttribute("href", '#${sectionId}');
+};
+
+
+/*function createLi() {
+  sections.forEach((section)=> {
+    li.innerText = section;
+    ul.appendChild(li);
+  });
+};
+createLi();
+
+function createAnchor() {
+  sections.forEach((section) => {
+    a.innerText = section;
+    ul.appendChild(a);
+  });
+};
+createAnchor();*/
+
+
+
+/*function createMenu() {
+  links.forEach((link)=> {
+    const li = document.createElement('li');
+    li.innerText = link;
+    ul.appendChild(li);
+  })
+}
+
+createMenu();*/
+
+
+/*links.forEach((link)=> {
+  const li = document.createElement('li');
+  const li = document.createElement('a');
   li.innerText = link;
   ul.appendChild(li);
-})
+})*/
+
 
 
 const navSlide = () => {
