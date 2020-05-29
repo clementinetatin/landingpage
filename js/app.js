@@ -96,9 +96,9 @@ document.addEventListener("scroll", function() {
 function ifTrue() {
   for (const section of sections) {
     if(isInViewport() === true) {
-      section.classList.add('your-active-class');
+      section.classList.add('.your-active-class');
     } else {
-      section.classList.remove('your-active-class');
+      section.classList.remove('.your-active-class');
     }
   }
 }
