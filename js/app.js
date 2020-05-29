@@ -89,8 +89,9 @@ function isInViewport () {
     }
   }
 };
-isInViewport();
-
+document.addEventListener("scroll", function() {
+  isInViewport();
+});
 
 function ifTrue() {
   for (const section of sections) {
@@ -103,6 +104,8 @@ function ifTrue() {
 }
 
 ifTrue();
+
+
 
 /*document.addEventListener("scroll", function() {
   makeActive();
