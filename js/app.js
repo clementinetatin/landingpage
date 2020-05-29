@@ -96,40 +96,17 @@ document.addEventListener("scroll", function() {
 function ifTrue() {
   for (const section of sections) {
     if(isInViewport() === true) {
-      section.classList.add('.your-active-class');
+      section.classList.add('.nav_active');
     } else {
-      section.classList.remove('.your-active-class');
+      section.classList.remove('.nav_active');
     }
   }
 }
-
 ifTrue();
-
-
-
-/*document.addEventListener("scroll", function() {
-  makeActive();
-);
-};*/
-
-
-/*const bounding = sections.getBoundingClientRect();
-if (
-  bounding.top >=0 &&
-  bounding.left >= 0 &&
-  bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-  bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-) {
-  console.log('in the viewport !');
-} else {
-  console.log('not in the viewport');
-};
-
 
 
 // call function to make it nav_active
 
-})
 
 // Scroll to anchor ID using scrollTO event
 
