@@ -75,28 +75,33 @@ navSlide();
   }
 }*/
 
-function isInViewport (element) {
-  const bounding = element.getBoundingClientRect();
-  if (bounding.top >=0 &&
-    bounding.left >= 0 &&
-    bounding.right <= (window.innerWidth || document.documentElement.clientWidth)&&
-    bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-  ) {
-    return true;
-  } else {
-    return false;
+function isInViewport () {
+  for (const section of sections) {
+    const bounding = section.getBoundingClientRect();
+    if (bounding.top >=0 &&
+      bounding.left >= 0 &&
+      bounding.right <= (window.innerWidth || document.documentElement.clientWidth)&&
+      bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
+isInViewport();
+
 
 function ifTrue() {
-  if(isInViewport() === true) {
-    sections.classList.add('your-active-class');
-  } else {
-    sections.classList.remove('your-active-class');
+  for (const section of sections) {
+    if(isInViewport() === true) {
+      section.classList.add('your-active-class');
+    } else {
+      section.classList.remove('your-active-class');
+    }
   }
 }
 
-isInViewport();
 ifTrue();
 
 /*document.addEventListener("scroll", function() {
