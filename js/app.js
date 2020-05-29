@@ -78,7 +78,7 @@ navSlide();
 function isInViewport () {
   for (const section of sections) {
     const bounding = section.getBoundingClientRect();
-    if (bounding.top >=0 &&
+    if (bounding.top >=467 &&
       bounding.left >= 0 &&
       bounding.right <= (window.innerWidth || document.documentElement.clientWidth)&&
       bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
