@@ -60,7 +60,7 @@ a:link {
   margin:2pt;
 }
 
-.your-active-class {
+.your-active-class .navbar__menu ul{
   font-size: 1,5em;
   color: red;
 }
