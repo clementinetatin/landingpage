@@ -13,6 +13,11 @@ a:link {
   letter-spacing: 2pt;
 }
 
+.page__header {
+  position:fixed;
+  transition:all .3s;
+}
+
 .navbar__menu {
   display: flex;
   justify-content: space-around;
@@ -60,9 +65,8 @@ a:link {
   margin:2pt;
 }
 
-.nav_active .navbar__menu ul{
-  font-size: 1,5em;
-  color: red;
+.nav_active  {
+  background-color: grey;
 }
 
 @media screen and (max-width:35em) {
@@ -90,16 +94,16 @@ a:link {
   }
 
   .navbar__list li {
-
     opacity: 1;
   }
 
   .burger {
     display:block;
   }
+
 }
 
-.nav_active {
+.burger_active {
   transform: translateX(0%);
 }
 

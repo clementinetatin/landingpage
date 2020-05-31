@@ -25,9 +25,6 @@ const nav_list = document.getElementsByClassName("navbar__list");
  * Start Helper Functions
  *
 */
-
-
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -53,7 +50,7 @@ const navSlide = () => {
   //const navLinks = document.querySelectorAll('.navbar__list li');
 
   burger.addEventListener('click',()=> {
-    nav.classList.toggle('nav_active');
+    nav.classList.toggle('burger_active');
     /*navLinks.forEach((link, index) => {
       if (link.style.animation) {
         link.style.animation = 'navLinkFade 0,5s ease forwards $‘{index/7 +1,5}s';
@@ -63,53 +60,44 @@ const navSlide = () => {
 };
 navSlide();
 
-
 // Add class 'active' to section when near top of viewport
-/*function makeActive() {
-  for (const section of sections) {
-    const bounding = section.getBoundingClientRect();
-    return (
-        bounding.top <= 150 &&
-        bounding.bottom >= 150;
-    );
-  }
-}*/
-
-function isInViewport () {
-  for (const section of sections) {
-    const bounding = section.getBoundingClientRect();
-    if (bounding.top >=467 &&
+function isInViewport () {  //create the function isInViewport
+  for (let i=0; i<sections.length;i++) { //for loop to get the sections
+    const bounding = sections[i].getBoundingClientRect(); // const get Bounding
+    if (bounding.top >=0 &&
       bounding.left >= 0 &&
       bounding.right <= (window.innerWidth || document.documentElement.clientWidth)&&
       bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-    ) {
-      return true;
+    ) { // window parameters
+      console.log(true);
+      sections[i].classList.add('nav_active');
     } else {
-      return false;
+      console.log(false);
+      sections[i].classList.remove('nav_active');
     }
   }
 };
-document.addEventListener("scroll", function() {
+//>> can't get my nav_active working on cellphone and ipad formats, I think the problem
+//>> is coming from the bounding.right and left but don't know how to fix it.
+
+// call function to make it nav_active
+document.addEventListener("scroll", function() { // when scrolling, apply isInViewport function
   isInViewport();
 });
 
-function ifTrue() {
-  for (const section of sections) {
-    if(isInViewport() === true) {
-      section.classList.add('.nav_active');
-    } else {
-      section.classList.remove('.nav_active');
-    }
-  }
+//// Scroll to anchor ID using scrollTO event
+const anchors = document.getElementsByTagName('a') // find the anchors
+for (let i=0; i<sections.length;i++) {  // for each section in sections
+  let element = sections[i];
+  let anchor = anchors[i];
+
+  anchor.addEventListener('click', (e) => {  //evenlistener on click
+    e.preventDefault();
+    element.scrollIntoView({behavior:"smooth"}) // scroll smoothly
+  })
 }
-ifTrue();
 
-
-// call function to make it nav_active
-
-
-// Scroll to anchor ID using scrollTO event
-
+// Hide Navbar when scrolling
 
 /**
  * End Main Functions
