@@ -1,13 +1,27 @@
 # Landing Page Project
 
 ## Table of Contents
+Project Description
+Technologies
+Prerequisites
+Testing & Deployment
 
 * [Instructions](#instructions)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+# Project description
+This project is made to test our new knowledges on Javascript.
+It includes a single page with different sections.
+Each section can be accessed directly when clicking on the NavBar.
+The scroll between the sections when click is smooth.
+On mobile device, the navbar is switched with a burger menu that display the nav items when clicking on it.
 
-To get started, open `js/app.js` and start building out the app's functionality
+# Technologies
+This project was developped using HTML5, CSS and Javascript.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+# Prerequisites
+To open this project, you need to install a code text editor such as Atom and open the project from this software.  
+
+# Testing & Deployment
+To test and open this project, you can open it on your computer or cellphone browser and check it with the developper consol.
