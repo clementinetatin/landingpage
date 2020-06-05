@@ -69,13 +69,14 @@ function isInViewport () {  //create the function isInViewport
     { // window parameters
 
         const id = sections[i].getAttribute('id');
-        document.querySelector('id').classList.add('active');
+        //const id = document.querySelector('#sectionId');
+        document.getElementById(id).classList.add('active');
         //console.log(true);
         sections[i].classList.add('nav_active');
 
     } else {
         const id = sections[i].getAttribute("id");
-        document.querySelector('id').classList.remove('active');
+        document.getElementById(id).classList.remove('active');
         //console.log(false);
         sections[i].classList.remove('nav_active');
     }
@@ -95,7 +96,7 @@ for (let i=0; i<sections.length;i++) {  // for each section in sections
   let element = sections[i];
   let anchor = anchors[i];
 
-  anchor.addEventListener('click', (e) => {  //evenlistener on click
+  anchor.addEventListener('click', (e) => {  //eventlistener on click
     e.preventDefault();
     element.scrollIntoView({behavior:"smooth"}) // scroll smoothly
   })
@@ -104,11 +105,11 @@ for (let i=0; i<sections.length;i++) {  // for each section in sections
 //hide nav bar when scrolling down - code made with help of w3school
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementsByClassName("navbar__menu").style.top = "0";
-  } else {
-    document.getElementsByClassName("navbar__menu").style.top = "-50px";
-  }
-  prevScrollpos = currentScrollPos;
+  var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.querySelector("page__header").style.top = "0";
+    } else {
+      document.querySelector("page__header").style.top = "-50px";
+    }
+    prevScrollpos = currentScrollPos;
 }
