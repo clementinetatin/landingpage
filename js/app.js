@@ -16,7 +16,7 @@
  //Define Global Variables
 const sections = Array.from(document.querySelectorAll('section[data-nav]'));
 const ul = document.querySelectorAll('ul');
-const nav_list = document.querySelector('#navbar__list');
+const nav_list = document.querySelector('.navbar__list');
 
 
 /**
@@ -68,11 +68,16 @@ function isInViewport () {  //create the function isInViewport
       bounding.bottom <= 736)
     { // window parameters
 
-        const id = sections[i].getAttribute('id');
-        //const id = document.querySelector('#sectionId');
+        const id = sections[i].getAttribute('id'); // give id for section in view
+
+        const listItems = document.querySelector('li');
+        const idItem = document.createElement('id') // create the ID
+        listItems.appendChild(idItem); // add an ID to each li element
+      
         document.getElementById(id).classList.add('active');
         //console.log(true);
         sections[i].classList.add('nav_active');
+
 
     } else {
         const id = sections[i].getAttribute("id");
@@ -82,6 +87,43 @@ function isInViewport () {  //create the function isInViewport
     }
   }
 };
+
+function navIsActive() {
+  for (let i=0; i<nav_list.length; i++) {
+
+
+
+  }
+}
+
+// function to get each element of the nav list active
+/*function navItemActive () {
+  for (let i=0; i<nav_list.length;i++) {
+    const bounding = sections[i].getBoundingClientRect(); // const get Bounding
+    if (bounding.top >= 0 &&
+      bounding.left >= 0 &&
+      bounding.right <= (window.innerWidth || document.documentElement.clientWidth)&&
+      bounding.bottom <= 736)
+    { // window parameters
+
+        //const id = sections[i].getAttribute('id'); // give id for section in view
+         // add an ID attribute to the LI items
+        const idItem = navElement.getAttribute('id'); // give id to nav Items
+        //const navItem = document.querySelector('li'); // for navitem
+        //const id = document.querySelector('#sectionId');
+        document.getElementById(id).classList.add('active');
+        //console.log(true);
+        sections[i].classList.add('nav_active');
+
+
+    } else {
+        const id = sections[i].getAttribute("id");
+        document.getElementById(id).classList.remove('active');
+        //console.log(false);
+        sections[i].classList.remove('nav_active');
+    }
+  }
+};*/
 
 
 // call function to make it nav_active
@@ -103,13 +145,14 @@ for (let i=0; i<sections.length;i++) {  // for each section in sections
 }
 
 //hide nav bar when scrolling down - code made with help of w3school
-var prevScrollpos = window.pageYOffset;
+/*var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
-      document.querySelector("page__header").style.top = "0";
+      document.querySelector(".navbar__menu").style.top = "0";
     } else {
-      document.querySelector("page__header").style.top = "-50px";
+      document.querySelector(".navbar__menu").style.top = "-80px";
     }
     prevScrollpos = currentScrollPos;
 }
+*/
