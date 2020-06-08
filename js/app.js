@@ -39,8 +39,8 @@ for (let i=0; i<sections.length;i++) {
   anch.innerHTML = sections[i].id;
   anch.setAttribute("href", `#${sectionId}`);
   nav_list.appendChild(li);
-  id.appendChild(anch); // modifié - avant li -> permet de mettre li dans div
-  li.appendChild(id); //
+  id.appendChild(anch);
+  li.appendChild(id);
   id.setAttribute("id",`#${sectionId}`);
 };
 
@@ -65,17 +65,13 @@ function isInViewport () {  //create the function isInViewport
       bounding.bottom <= 736)
     { // window parameters
         const id = sections[i].getAttribute('id'); // give id for section in view
+        document.getElementById('#'+id).classList.add('active');
         document.getElementById(id).classList.add('active');
-        //console.log(true);
-        //sections[i].classList.add('nav_active');
-        //const x = document.querySelectorAll('li'); // *fetch the "li"
-        
+
     } else {
         const id = sections[i].getAttribute("id");
-        //const x = document.querySelectorAll('li'); // *fetch the "li"
+        document.getElementById('#'+id).classList.remove('active');
         document.getElementById(id).classList.remove('active');
-        //x.classList.remove('active'); // make the 'li' inactive
-        //console.log(false);
     }
   }
 };
@@ -83,12 +79,6 @@ function isInViewport () {  //create the function isInViewport
 // call function to make it nav_active
 document.addEventListener("scroll", function() { // when scrolling, apply isInViewport function
   isInViewport();
-});
-
-// call function to make nav list active
-document.addEventListener("scroll", function() {
-  const navActive = document.querySelector('li');
-  navActive.style.backgroundColor = 'orange';
 });
 
 // Scroll to anchor ID using scrollTO event
@@ -104,7 +94,7 @@ for (let i=0; i<sections.length;i++) {  // for each section in sections
 }
 
 //hide nav bar when scrolling down - code made with help of w3school
-/*var prevScrollpos = window.pageYOffset;
+var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
@@ -113,4 +103,4 @@ window.onscroll = function() {
     document.querySelector(".navbar__menu").style.display = "none";
   };
   prevScrollpos = currentScrollPos;
-};*/
+};
