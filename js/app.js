@@ -15,9 +15,9 @@
 
  //Define Global Variables
 const sections = Array.from(document.querySelectorAll('section[data-nav]'));
+const navSec = Array.from(document.querySelectorAll('li'));
 const ul = document.querySelectorAll('ul');
 const nav_list = document.querySelector('.navbar__list');
-
 
 /**
  * End Global Variables
@@ -37,31 +37,20 @@ for (let i=0; i<sections.length;i++) {
   const anch = document.createElement('a');
   const sectionId = sections[i].id;
   anch.innerHTML = sections[i].id;
-  //anch.innerHTML = li.id;//
   anch.setAttribute("href", `#${sectionId}`);
   nav_list.appendChild(li);
-  //listItems.appendChild(id);
   id.appendChild(anch); // modifié - avant li -> permet de mettre li dans div
   li.appendChild(id); //
-
-  //li.setAttribute("id"); //
-  //id.innerHTML = li.id;//
-
+  id.setAttribute("id",`#${sectionId}`);
 };
 
 //burger and menu in mobile format
 const navSlide = () => {
   const burger = document.querySelector('.burger');
   const nav = document.querySelector('.navbar__list');
-  //const navLinks = document.querySelectorAll('.navbar__list li');
 
   burger.addEventListener('click',()=> {
     nav.classList.toggle('burger_active');
-    /*navLinks.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = 'navLinkFade 0,5s ease forwards $‘{index/7 +1,5}s';
-      }
-    })*/
   });
 };
 navSlide();
@@ -79,21 +68,17 @@ function isInViewport () {  //create the function isInViewport
         document.getElementById(id).classList.add('active');
         //console.log(true);
         //sections[i].classList.add('nav_active');
-        const liActive = document.querySelector('li'); // *fetch the "li"
-        liActive.classList.add('active'); // make the 'li' active
-
-
+        //const x = document.querySelectorAll('li'); // *fetch the "li"
+        
     } else {
         const id = sections[i].getAttribute("id");
-        const liActive = document.querySelector('li'); // *fetch the "li"
+        //const x = document.querySelectorAll('li'); // *fetch the "li"
         document.getElementById(id).classList.remove('active');
-        liActive.classList.remove('active'); // make the 'li' inactive
+        //x.classList.remove('active'); // make the 'li' inactive
         //console.log(false);
-        //sections[i].classList.remove('nav_active');
     }
   }
 };
-
 
 // call function to make it nav_active
 document.addEventListener("scroll", function() { // when scrolling, apply isInViewport function
@@ -101,10 +86,10 @@ document.addEventListener("scroll", function() { // when scrolling, apply isInVi
 });
 
 // call function to make nav list active
-/*document.addEventListener("scroll", function() {
+document.addEventListener("scroll", function() {
   const navActive = document.querySelector('li');
   navActive.style.backgroundColor = 'orange';
-});*/
+});
 
 // Scroll to anchor ID using scrollTO event
 const anchors = document.getElementsByTagName('a') // find the anchors
