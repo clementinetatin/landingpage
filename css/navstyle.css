@@ -71,7 +71,7 @@ a:link {
 }
 
 .active {
-  background-color: yellow;
+  background-color: blue;
 }
 
 @media screen and (max-width:35em) {
@@ -85,7 +85,7 @@ a:link {
     width:60%;
     overflow-x:hidden;
   }
-  .navbar__list {
+.navbar__list {
       position:absolute;
       right:0px;
       top:98px;
@@ -98,7 +98,7 @@ a:link {
       background-color: #fff;
   }
 
-  .navbar__list li {
+.navbar__list li {
     opacity: 1;
   }
 

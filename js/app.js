@@ -33,12 +33,20 @@ const nav_list = document.querySelector('.navbar__list');
 // build the nav
 for (let i=0; i<sections.length;i++) {
   const li = document.createElement('li');
+  const id = document.createElement('id'); //
   const anch = document.createElement('a');
   const sectionId = sections[i].id;
   anch.innerHTML = sections[i].id;
+  //anch.innerHTML = li.id;//
   anch.setAttribute("href", `#${sectionId}`);
   nav_list.appendChild(li);
-  li.appendChild(anch);
+  //listItems.appendChild(id);
+  id.appendChild(anch); // modifié - avant li -> permet de mettre li dans div
+  li.appendChild(id); //
+
+  //li.setAttribute("id"); //
+  //id.innerHTML = li.id;//
+
 };
 
 //burger and menu in mobile format
@@ -67,63 +75,24 @@ function isInViewport () {  //create the function isInViewport
       bounding.right <= (window.innerWidth || document.documentElement.clientWidth)&&
       bounding.bottom <= 736)
     { // window parameters
-
         const id = sections[i].getAttribute('id'); // give id for section in view
-
-        const listItems = document.querySelector('li');
-        const idItem = document.createElement('id') // create the ID
-        listItems.appendChild(idItem); // add an ID to each li element
-      
         document.getElementById(id).classList.add('active');
         //console.log(true);
-        sections[i].classList.add('nav_active');
+        //sections[i].classList.add('nav_active');
+        const liActive = document.querySelector('li'); // *fetch the "li"
+        liActive.classList.add('active'); // make the 'li' active
 
 
     } else {
         const id = sections[i].getAttribute("id");
+        const liActive = document.querySelector('li'); // *fetch the "li"
         document.getElementById(id).classList.remove('active');
+        liActive.classList.remove('active'); // make the 'li' inactive
         //console.log(false);
-        sections[i].classList.remove('nav_active');
+        //sections[i].classList.remove('nav_active');
     }
   }
 };
-
-function navIsActive() {
-  for (let i=0; i<nav_list.length; i++) {
-
-
-
-  }
-}
-
-// function to get each element of the nav list active
-/*function navItemActive () {
-  for (let i=0; i<nav_list.length;i++) {
-    const bounding = sections[i].getBoundingClientRect(); // const get Bounding
-    if (bounding.top >= 0 &&
-      bounding.left >= 0 &&
-      bounding.right <= (window.innerWidth || document.documentElement.clientWidth)&&
-      bounding.bottom <= 736)
-    { // window parameters
-
-        //const id = sections[i].getAttribute('id'); // give id for section in view
-         // add an ID attribute to the LI items
-        const idItem = navElement.getAttribute('id'); // give id to nav Items
-        //const navItem = document.querySelector('li'); // for navitem
-        //const id = document.querySelector('#sectionId');
-        document.getElementById(id).classList.add('active');
-        //console.log(true);
-        sections[i].classList.add('nav_active');
-
-
-    } else {
-        const id = sections[i].getAttribute("id");
-        document.getElementById(id).classList.remove('active');
-        //console.log(false);
-        sections[i].classList.remove('nav_active');
-    }
-  }
-};*/
 
 
 // call function to make it nav_active
@@ -131,6 +100,11 @@ document.addEventListener("scroll", function() { // when scrolling, apply isInVi
   isInViewport();
 });
 
+// call function to make nav list active
+/*document.addEventListener("scroll", function() {
+  const navActive = document.querySelector('li');
+  navActive.style.backgroundColor = 'orange';
+});*/
 
 // Scroll to anchor ID using scrollTO event
 const anchors = document.getElementsByTagName('a') // find the anchors
@@ -148,11 +122,10 @@ for (let i=0; i<sections.length;i++) {  // for each section in sections
 /*var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.querySelector(".navbar__menu").style.top = "0";
-    } else {
-      document.querySelector(".navbar__menu").style.top = "-80px";
-    }
-    prevScrollpos = currentScrollPos;
-}
-*/
+  if (prevScrollpos > currentScrollPos) {
+    document.querySelector(".navbar__menu").style.display = "flex";
+  } else {
+    document.querySelector(".navbar__menu").style.display = "none";
+  };
+  prevScrollpos = currentScrollPos;
+};*/
