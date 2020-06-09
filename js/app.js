@@ -59,10 +59,9 @@ navSlide();
 function isInViewport () {  //create the function isInViewport
   for (let i=0; i<sections.length;i++) { //for loop to get the sections
     const bounding = sections[i].getBoundingClientRect(); // const get Bounding
-    if (bounding.top >= 0 &&
-      bounding.left >= 0 &&
-      bounding.right <= (window.innerWidth || document.documentElement.clientWidth)&&
-      bounding.bottom <= 736)
+    const halfScreen = window.innerHeight / 2 ;
+    if (bounding.top < halfScreen &&
+        bounding.bottom > halfScreen)
     { // window parameters
         const id = sections[i].getAttribute('id'); // give id for section in view
         document.getElementById('#'+id).classList.add('active');
